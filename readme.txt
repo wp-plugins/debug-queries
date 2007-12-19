@@ -7,7 +7,7 @@ Requires at least: 1.5
 List querie-actions in html-comment only for admins
 
 == Description ==
-
+List querie-actions in html-comment only for admins.
 
 Please visit [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries") for further details and the latest information on this plugin.
 
