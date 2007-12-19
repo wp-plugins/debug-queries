@@ -23,24 +23,24 @@ See on [the official website](http://bueltge.de/wordpress-performance-analysiere
 == Other Notes ==
 This is a example for analysis.
 
-`<!--
-0.000632047653198        SELECT option_value FROM wp_options WHERE option_name = 'siteurl'
-
-0.00303101539612         SELECT option_name, option_value FROM wp_options WHERE autoload = 'yes'
-
-0.00327301025391         SELECT ID FROM wp_users WHERE user_login = 'admin'
-
-0.00126004219055         SELECT * FROM wp_users WHERE ID = 1 LIMIT 1
-
-0.000476121902466        SELECT meta_key, meta_value FROM wp_usermeta WHERE user_id = 1
-
-0.000423192977905        SELECT COUNT(comment_ID) FROM wp_comments WHERE comment_approved = 'spam'
-
-0.00264286994934         SELECT * FROM wp_posts WHERE ID = 1 LIMIT 1
-
-. . .
-
-Total query time: 0.0315816402435`
+`<!--`
+`0.000632047653198        SELECT option_value FROM wp_options WHERE option_name = 'siteurl'`
+``
+`0.00303101539612         SELECT option_name, option_value FROM wp_options WHERE autoload = 'yes'`
+``
+`0.00327301025391         SELECT ID FROM wp_users WHERE user_login = 'admin'`
+``
+`0.00126004219055         SELECT * FROM wp_users WHERE ID = 1 LIMIT 1`
+``
+`0.000476121902466        SELECT meta_key, meta_value FROM wp_usermeta WHERE user_id = 1`
+``
+`0.000423192977905        SELECT COUNT(comment_ID) FROM wp_comments WHERE comment_approved = 'spam'`
+``
+`0.00264286994934         SELECT * FROM wp_posts WHERE ID = 1 LIMIT 1`
+``
+`. . .`
+``
+`Total query time: 0.0315816402435``
 
 == Frequently Asked Questions ==
 
