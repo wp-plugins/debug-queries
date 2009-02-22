@@ -4,7 +4,7 @@ Plugin Name: Debug Queries
 Plugin URI: http://bueltge.de/wordpress-performance-analysieren-plugin/558/
 Description: List querie-actions in html-comment only for admins
 Version: 0.1
-Author: Frank Bueltge
+Author: Frank B&uuml;ltge
 Author URI: http://bueltge.de/
 */
 
