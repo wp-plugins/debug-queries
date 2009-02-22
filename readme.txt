@@ -3,6 +3,8 @@ Contributors: Bueltge
 Donate link: http://bueltge.de/wunschliste/
 Tags: queries, database, performance, analyse
 Requires at least: 1.5
+Tested up to: 2.8-bleeding-edge
+Stable tag: 0.1
 
 List querie-actions in html-comment only for admins
 
