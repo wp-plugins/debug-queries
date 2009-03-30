@@ -5,10 +5,13 @@ Plugin URI: http://bueltge.de/wordpress-performance-analysieren-plugin/558/
 Description: List querie-actions in html-comment only for admins
 Author: Frank B&uuml;ltge
 Author URI: http://bueltge.de/
-Version: 0.1
+Version: 0.2
 License: GPL
-Last Change: 22.02.2009 12:53:12
+Last Change: 30.03.2009 20:09:12
 */
+
+if ( !defined('SAVEQUERIES') )
+	define('SAVEQUERIES', true);
 
 // core
 function get_fbDebugQueries() {
@@ -16,28 +19,30 @@ function get_fbDebugQueries() {
 	
 	$total_query_time = 0;
 	
+	$debugQueries = '';
 	foreach ($wpdb->queries as $q) {
 		$q[0] = trim(ereg_replace('[[:space:]]+', ' ', $q[0]));
 		$total_query_time += $q[1];
-		$debugQueries .= $q[1] . "\t" . $q[0]. "\n\n";
+		$debugQueries .= $q[1] . "\t" . $q[0]. "\n" . $q[2] . "\n\n";
 	}
 	
-	$debugQueries .= "Total query time: $total_query_time ";
+	$debugQueries .= __('Total query time: $total_query_time for') . ' ' . count($wpdb->queries) . ' ' . __('queries.');
+	
 	return $debugQueries;
 }
 
 // echo in html-comment
 function fbDebugQueries() {
-	echo "\n" . '<!-- Debug Queries by Frank Bueltge, bueltge.de';
-	echo "\n\t" . '! Deaktivate after analysis !';
-	echo "\n" . get_fbDebugQueries() . "\n" . ' -->';
+	echo "\n\n" . __('<!-- Debug Queries by Frank Bueltge, bueltge.de');
+	echo "\n\t" . __('! Deaktivate after analysis !');
+	echo "\n" . get_fbDebugQueries() . "\n" . ' -->' . "\n\n";
 }
 
 // check user can
 function fbDebugQueries_user_can() {
 	global $wp_version;
 
-	if ( version_compare($wp_version, '2.1', '<') ) {
+	if ( version_compare($wp_version, '2.1dev', '<') ) {
 		require (ABSPATH . WPINC . '/pluggable-functions.php'); // < WP 2.1
 	} else {
 		require (ABSPATH . WPINC . '/pluggable.php'); // >= WP 2.1	
