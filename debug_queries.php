@@ -5,9 +5,9 @@ Plugin URI: http://bueltge.de/wordpress-performance-analysieren-plugin/558/
 Description: List querie-actions in html-comment only for admins
 Author: Frank B&uuml;ltge
 Author URI: http://bueltge.de/
-Version: 0.2
+Version: 0.3
 License: GPL
-Last Change: 30.03.2009 20:09:12
+Last Change: 31.03.2009 13:34:28
 */
 
 if ( !defined('SAVEQUERIES') )
@@ -26,7 +26,7 @@ function get_fbDebugQueries() {
 		$debugQueries .= $q[1] . "\t" . $q[0]. "\n" . $q[2] . "\n\n";
 	}
 	
-	$debugQueries .= __('Total query time: $total_query_time for') . ' ' . count($wpdb->queries) . ' ' . __('queries.');
+	$debugQueries .= __('Total query time:') . ' ' . $total_query_time . __(' for') . ' ' . count($wpdb->queries) . ' ' . __('queries.');
 	
 	return $debugQueries;
 }
