@@ -26,7 +26,7 @@ function get_fbDebugQueries() {
 		$debugQueries .= $q[1] . "\t" . $q[0]. "\n" . $q[2] . "\n\n";
 	}
 	
-	$debugQueries .= __('Total query time:') . ' ' . $total_query_time . __(' for') . ' ' . count($wpdb->queries) . ' ' . __('queries.');
+	$debugQueries .= __('Total query time:') . ' ' . $total_query_time . ' ' . __('for') . ' ' . count($wpdb->queries) . ' ' . __('queries.');
 	
 	return $debugQueries;
 }
