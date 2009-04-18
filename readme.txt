@@ -1,59 +1,56 @@
 === Debug Queries ===
 Contributors: Bueltge
 Donate link: http://bueltge.de/wunschliste/
-Tags: queries, database, performance, analyse
+Tags: queries, database, performance, analyse, sql, debug, tuning
 Requires at least: 1.5
-Tested up to: 2.8-bleeding-edge
+Tested up to: 2.8
 Stable tag: 0.1
 
-List querie-actions in html-comment only for admins
+List querie-actions only for admins; for debug purposes
 
 == Description ==
-List querie-actions in html-comment only for admins.
+List querie-actions only for admins; for debug purposes. See all queries on the forntend of the blog and find the slowest part.
+
+The plugin is perfect for WordPress developers, plugin and theme developers and site administrators who are trying to find out why the blog is too slow.
 
 Please visit [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries") for further details and the latest information on this plugin.
 
 == Installation ==
 1. Unpack the download-package
 1. Upload all files to the `/wp-content/plugins/` directory, without folder
-1. Editing file `wp-config.php`: `define('SAVEQUERIES', true); // Debug Queries`
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. That's it! Now you are all set to go on to thr frontend of your weblog and read the code. You find the querie-analysis on end of syntax. 
+1. That's it! Now you are all set to go on to thr frontend of your weblog and see the list of queries. You find the querie-analysis on end of the blog. Only logged administrators can see the result.
 
 See on [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries").
+
+== Screenshots ==
+1. List queries in frontend on a example blog
 
 == Other Notes ==
 = Example =
 This is a example for analysis.
 
-`<!--`
-`0.000632047653198        SELECT option_value FROM wp_options WHERE option_name = 'siteurl'`
-``
-`0.00303101539612         SELECT option_name, option_value FROM wp_options WHERE autoload = 'yes'`
-``
-`0.00327301025391         SELECT ID FROM wp_users WHERE user_login = 'admin'`
-``
-`0.00126004219055         SELECT * FROM wp_users WHERE ID = 1 LIMIT 1`
-``
-`0.000476121902466        SELECT meta_key, meta_value FROM wp_usermeta WHERE user_id = 1`
-``
-`0.000423192977905        SELECT COUNT(comment_ID) FROM wp_comments WHERE comment_approved = 'spam'`
-``
-`0.00264286994934         SELECT * FROM wp_posts WHERE ID = 1 LIMIT 1`
-``
-`. . .`
-``
-`Total query time: 0.0315816402435 for 12 queries``
+`# Time: 0.00198888778687
+Query: SELECT option_name, option_value FROM wp_options WHERE autoload = 'yes'
+Call from: require, require_once, require_once, require_once, is_blog_installed, wp_load_alloptions
+# Time: 0.000695943832397
+Query: UPDATE `wp_options` SET `option_value` = 'a:3:{i:0;b:0;s:25:\"adminimize/adminimize.php\";a:2:{i:0;O:10:\"adminimize\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:12:\"on_deinstall\";}s:31:\"debug_queries/debug_queries.php\";a:2:{i:0;O:12:\"DebugQueries\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:10:\"deactivate\";}}' WHERE `option_name` = 'uninstall_plugins'
+Call from: require, require_once, require_once, require_once, include_once, adminimize->adminimize, register_uninstall_hook, update_option
+# Time: 0.000643968582153
+Query: UPDATE `wp_options` SET `option_value` = 'a:3:{i:0;b:0;s:25:\"adminimize/adminimize.php\";a:2:{i:0;O:10:\"adminimize\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:12:\"on_deinstall\";}s:31:\"debug_queries/debug_queries.php\";a:2:{i:0;O:12:\"DebugQueries\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:10:\"deactivate\";}}' WHERE `option_name` = 'uninstall_plugins'
+Call from: require, require_once, require_once, require_once, include_once, DebugQueries->DebugQueries, register_uninstall_hook, update_option
+# Time: 0.000519990921021
+Query: SELECT option_value FROM wp_options WHERE option_name = 'wpcms_post_control_options' LIMIT 1
+Call from: require, require_once, require_once, require_once, include_once, get_option
+
+    * Total query time: 0.0155501365662 for 23 queries.
+    * Total num_query time: 0.392 for 23 num_queries.`
 
 = Acknowledgements =
 Thanks to Joost de Valk on [yoast.com](http://yoast.com/ "yoast.com") for small modifed on the plugin for some extra info.
 
 = Licence =
 Good news, this plugin is free for everyone! Since it's released under the GPL, you can use it free of charge on your personal or commercial blog. But if you enjoy this plugin, you can thank me and leave a [small donation](http://bueltge.de/wunschliste/ "Wishliste and Donate") for the time I've spent writing and supporting this plugin. And I really don't want to know how many hours of my life this plugin has already eaten ;)
-
-= Translations =
-The plugin comes with various translations, please refer to the [WordPress Codex](http://codex.wordpress.org/Installing_WordPress_in_Your_Language "Installing WordPress in Your Language") for more information about activating the translation. If you want to help to translate the plugin to your language, please have a look at the sitemap.pot file which contains all defintions and may be used with a [gettext](http://www.gnu.org/software/gettext/) editor like [Poedit](http://www.poedit.net/) (Windows).
-
 
 == Frequently Asked Questions ==
 
