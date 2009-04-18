@@ -34,18 +34,12 @@ This is a example for analysis.
 Query: SELECT option_name, option_value FROM wp_options WHERE autoload = 'yes'
 Call from: require, require_once, require_once, require_once, is_blog_installed, wp_load_alloptions
 # Time: 0.000695943832397
-Query: UPDATE `wp_options` SET `option_value` = 'a:3:{i:0;b:0;s:25:\"adminimize/adminimize.php\";a:2:{i:0;O:10:\"adminimize\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:12:\"on_deinstall\";}s:31:\"debug_queries/debug_queries.php\";a:2:{i:0;O:12:\"DebugQueries\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:10:\"deactivate\";}}' WHERE `option_name` = 'uninstall_plugins'
-Call from: require, require_once, require_once, require_once, include_once, adminimize->adminimize, register_uninstall_hook, update_option
-# Time: 0.000643968582153
-Query: UPDATE `wp_options` SET `option_value` = 'a:3:{i:0;b:0;s:25:\"adminimize/adminimize.php\";a:2:{i:0;O:10:\"adminimize\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:12:\"on_deinstall\";}s:31:\"debug_queries/debug_queries.php\";a:2:{i:0;O:12:\"DebugQueries\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:10:\"deactivate\";}}' WHERE `option_name` = 'uninstall_plugins'
-Call from: require, require_once, require_once, require_once, include_once, DebugQueries->DebugQueries, register_uninstall_hook, update_option
-# Time: 0.000519990921021
-Query: SELECT option_value FROM wp_options WHERE option_name = 'wpcms_post_control_options' LIMIT 1
-Call from: require, require_once, require_once, require_once, include_once, get_option
-
+Query: UPDATE `wp_options` SET `option_value` = 'a:3:{i:0;b:0;s:25:\"adminimize/adminimize.php\";a:2:{i:0;O:10:\"adminimize\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:12:\"on_deinstall\";}s:31:\"debug_queries/debug_queries.php\";a:2:{i:0;O:12:\"DebugQueries\":1:{s:12:\"wp_filter_id\";i:0;}i:1;s:10:\"deactivate\";}}' WHERE `option_name` = 'uninstall_plugins'`
+`Call from: require, require_once, require_once, require_once, include_once, adminimize->adminimize, register_uninstall_hook, update_option`
+`
 . . .
-
-    Total query time: 0.0155501365662 for 23 queries.
+`
+`   Total query time: 0.0155501365662 for 23 queries.
     Total num_query time: 0.392 for 23 num_queries.`
 
 = Acknowledgements =
