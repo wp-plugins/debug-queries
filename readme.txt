@@ -43,8 +43,10 @@ Call from: require, require_once, require_once, require_once, include_once, Debu
 Query: SELECT option_value FROM wp_options WHERE option_name = 'wpcms_post_control_options' LIMIT 1
 Call from: require, require_once, require_once, require_once, include_once, get_option
 
-    * Total query time: 0.0155501365662 for 23 queries.
-    * Total num_query time: 0.392 for 23 num_queries.`
+. . .
+
+    Total query time: 0.0155501365662 for 23 queries.
+    Total num_query time: 0.392 for 23 num_queries.`
 
 = Acknowledgements =
 Thanks to Joost de Valk on [yoast.com](http://yoast.com/ "yoast.com") for small modifed on the plugin for some extra info.
