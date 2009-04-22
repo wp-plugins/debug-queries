@@ -131,12 +131,16 @@ if ( !class_exists('DebugQueries') ) {
 			$wp_roles->remove_cap('administrator', 'DebugQueries');
 		}
 		
-		// function for WP < 2.6
+		// function for WP < 2.8
 		function plugins_url($path = '', $plugin = '') {
-			$scheme = 'http';
+			if ( function_exists('is_ssl') )
+				$scheme = ( is_ssl() ? 'https' : 'http' );
+			else
+				$scheme = 'http';
 			$url = WP_PLUGIN_URL;
 			if ( 0 === strpos($url, 'http') ) {
-				$url = str_replace( 'http://', "{$scheme}://", $url );
+				if ( function_exists('is_ssl') && is_ssl() )
+					$url = str_replace( 'http://', "{$scheme}://", $url );
 			}
 		
 			if ( !empty($plugin) && is_string($plugin) )
