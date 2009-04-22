@@ -5,9 +5,9 @@ Plugin URI: http://bueltge.de/wordpress-performance-analysieren-plugin/558/
 Description: List querie-actions only for admins; for debug purposes
 Author: Frank B&uuml;ltge
 Author URI: http://bueltge.de/
-Version: 0.4
+Version: 0.4.1
 License: GPL
-Last Change: 18.04.2009 13:21:40
+Last Change: 22.04.2009 09:33:20
 */
 
 //avoid direct calls to this file, because now WP core and framework has been used
@@ -78,8 +78,10 @@ if ( !class_exists('DebugQueries') ) {
 			}
 			
 			$debugQueries .= '<ul>' . "\n";
-			$debugQueries .= '<li>' . __('Total query time:') . ' ' . $total_query_time . ' ' . __('for') . ' ' . count($wpdb->queries) . ' ' . __('queries.') . '</li>' . "\n";
-			$debugQueries .= '<li>' . __('Total num_query time:') . ' ' . timer_stop() . ' ' . __('for') . ' ' . get_num_queries() . ' ' . __('num_queries.') . '</li>' . "\n";
+			$debugQueries .= '<li><strong>' . __('Total query time:') . ' ' . $total_query_time . ' ' . __('for') . ' ' . count($wpdb->queries) . ' ' . __('queries.') . '</strong></li>' . "\n";
+			$debugQueries .= '<li><strong>' . __('Total num_query time:') . ' ' . timer_stop() . ' ' . __('for') . ' ' . get_num_queries() . ' ' . __('num_queries.') . '</strong></li>' . "\n";
+			if ( count($wpdb->queries) != get_num_queries() )
+				$debugQueries .= '<li class="none_list">' . __('&raquo; Different values in num_query and query? - please set the constant') . ' <code>define(\'SAVEQUERIES\', true);</code>' . __('in your') . ' <code>wp-config.php</code></li>' . "\n";
 			$debugQueries .= '</ul>' . "\n";
 			
 			return $debugQueries;
@@ -152,11 +154,12 @@ if ( !class_exists('DebugQueries') ) {
 		
 		// infos in frontend, add css to head
 		function wp_head() {
+			global $wp_version;
 			
 			if ( !current_user_can('DebugQueries') )
 				return;
 				
-			if ( function_exists('plugins_url') )
+			if ( version_compare( $wp_version, '2.8dev', '>' ) )
 				$style = plugins_url('css/style-frontend.css', __FILE__);
 			else
 				$style = $this->plugins_url('css/style-frontend.css', __FILE__);

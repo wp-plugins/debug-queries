@@ -24,12 +24,15 @@
 }
 
 #debugqueries ul {
-	font-weight: 700;
 	margin-top: 1em;
 }
 
 #debugqueries li.alt {
 	color: #D98500;
+}
+
+#debugqueries li.none_list {
+	list-style-type: none;
 }
 
 /* End Debug Queries CSS */
