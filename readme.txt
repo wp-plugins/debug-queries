@@ -1,15 +1,15 @@
 === Debug Queries ===
 Contributors: Bueltge
 Donate link: http://bueltge.de/wunschliste/
-Tags: queries, database, performance, analyse, sql, debug, tuning
+Tags: query, queries, database, performance, analyse, sql, debug, tuning
 Requires at least: 1.5
 Tested up to: 2.8
 Stable tag: 0.1
 
-List querie-actions only for admins; for debug purposes
+List query-actions only for admins; for debug purposes
 
 == Description ==
-List querie-actions only for admins; for debug purposes. See all queries on the forntend of the blog and find the slowest part.
+List query-actions only for admins; for debug purposes. See all queries on the forntend of the blog and find the slowest part.
 
 The plugin is perfect for WordPress developers, plugin and theme developers and site administrators who are trying to find out why the blog is too slow.
 
