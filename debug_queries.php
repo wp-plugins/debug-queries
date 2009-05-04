@@ -5,9 +5,9 @@ Plugin URI: http://bueltge.de/wordpress-performance-analysieren-plugin/558/
 Description: List query-actions only for admins; for debug purposes
 Author: Frank B&uuml;ltge
 Author URI: http://bueltge.de/
-Version: 0.4.1
+Version: 0.5
 License: GPL
-Last Change: 22.04.2009 09:33:20
+Last Change: 04.05.2009 15:39:51
 */
 
 //avoid direct calls to this file, because now WP core and framework has been used
@@ -49,11 +49,12 @@ if ( !class_exists('DebugQueries') ) {
 
 		// core
 		function get_fbDebugQueries() {
-			global $wpdb, $wp_object_cache;
+			global $wpdb;
 			
 			$debugQueries  = '';
 			if ($wpdb->queries) {
 				$x = 0;
+				$total_time = timer_stop( false, 22 );
 				$total_query_time = 0;
 				$class = ''; 
 				$debugQueries .= '<ol>' . "\n";
@@ -77,11 +78,20 @@ if ( !class_exists('DebugQueries') ) {
 				$debugQueries .= '</ol>' . "\n\n";
 			}
 			
+			$php_time = $total_time - $total_query_time;
+			// Create the percentages
+			$mysqlper = number_format_i18n( $total_query_time / $total_time * 100, 2 );
+			$phpper   = number_format_i18n( $php_time / $total_time * 100, 2 );
+			
 			$debugQueries .= '<ul>' . "\n";
-			$debugQueries .= '<li><strong>' . __('Total query time:') . ' ' . $total_query_time . ' ' . __('for') . ' ' . count($wpdb->queries) . ' ' . __('queries.') . '</strong></li>' . "\n";
-			$debugQueries .= '<li><strong>' . __('Total num_query time:') . ' ' . timer_stop() . ' ' . __('for') . ' ' . get_num_queries() . ' ' . __('num_queries.') . '</strong></li>' . "\n";
-			if ( count($wpdb->queries) != get_num_queries() )
+			$debugQueries .= '<li><strong>' . __('Total query time:') . ' ' . number_format_i18n( $total_query_time, 5 ) . __('s for') . ' ' . count($wpdb->queries) . ' ' . __('queries.') . '</strong></li>';
+			if ( count($wpdb->queries) != get_num_queries() ) {
+				$debugQueries .= '<li><strong>' . __('Total num_query time:') . ' ' . timer_stop() . ' ' . __('for') . ' ' . get_num_queries() . ' ' . __('num_queries.') . '</strong></li>' . "\n";
 				$debugQueries .= '<li class="none_list">' . __('&raquo; Different values in num_query and query? - please set the constant') . ' <code>define(\'SAVEQUERIES\', true);</code>' . __('in your') . ' <code>wp-config.php</code></li>' . "\n";
+			}
+			if ( $total_query_time == 0 )
+				$debugQueries .= '<li class="none_list">' . __('&raquo; Query time is null (0)? - please set the constant') . ' <code>SAVEQUERIES</code>' . ' ' . __('at') . ' <code>TRUE</code> ' . __('in your') . ' <code>wp-config.php</code></li>' . "\n";
+			$debugQueries .= '<li>' . __('Page generated in'). ' ' . number_format_i18n( $total_time, 5 ) . __('s, ') . $phpper . __('% PHP') . ', ' . $mysqlper . __('% MySQL') . '</li>' . "\n";
 			$debugQueries .= '</ul>' . "\n";
 			
 			return $debugQueries;
@@ -95,7 +105,7 @@ if ( !class_exists('DebugQueries') ) {
 			
 			$echo 	= '';
 			$echo .= "\n\n" . __('<!-- Debug Queries by Frank Bueltge, bueltge.de');
-			$echo .= "\n\t" . __('! Deaktivate after analysis !');
+			$echo .= "\n\t" . __('! Deactivate after analysis !');
 			$echo .= "\n" . $this->get_fbDebugQueries() . "\n" . ' -->' . "\n\n";
 			
 			echo $echo;
@@ -110,7 +120,7 @@ if ( !class_exists('DebugQueries') ) {
 			$echo 	= '';
 			$echo .= '<div id="debugqueries" class="transparent">' . "\n";
 			$echo .= '<h3><a href="http://bueltge.de/wordpress-performance-analysieren-plugin/558/">Debug Queries</a> ' . __('by Frank B&uuml;ltge') . ', <a href="http://bueltge.de/">bueltge.de</a></h3>' . "\n";
-			$echo .= '<p>' . __('&raquo; Deaktivate after analysis!'). '</p>' . "\n";
+			$echo .= '<p>' . __('&raquo; Deactivate after analysis!'). '</p>' . "\n";
 			$echo .= $this->get_fbDebugQueries();
 			$echo .= '</div>' . "\n\n";
 			
