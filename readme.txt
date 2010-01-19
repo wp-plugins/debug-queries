@@ -3,7 +3,7 @@ Contributors: Bueltge
 Donate link: http://bueltge.de/wunschliste/
 Tags: query, queries, database, performance, analyse, sql, debug, tuning
 Requires at least: 1.5
-Tested up to: 2.8
+Tested up to: 3.0-alpha
 Stable tag: 0.1
 
 List query-actions only for admins; for debug purposes
@@ -14,6 +14,9 @@ List query-actions only for admins; for debug purposes. See all queries on the f
 The plugin is perfect for WordPress developers, plugin and theme developers and site administrators who are trying to find out why the blog is too slow.
 
 Please visit [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries") for further details and the latest information on this plugin.
+
+= Interested in WordPress tips and tricks =
+You may also be interested in WordPress tips and tricks at [WP Enginner](http://wpengineer.com/) or for german people [bueltge.de](http://bueltge.de/) 
 
 == Installation ==
 1. Unpack the download-package
@@ -55,3 +58,7 @@ Please visit [the official website](http://bueltge.de/wordpress-performance-anal
 
 = I love this plugin! How can I show the developer how much I appreciate his work? =
 Please visit [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries") and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
+
+== Changelog ==
+= v0.6 (01/19/2010) =
+* Convert all applicable characters in queries to HTML entities 

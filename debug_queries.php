@@ -5,9 +5,9 @@ Plugin URI: http://bueltge.de/wordpress-performance-analysieren-plugin/558/
 Description: List query-actions only for admins; for debug purposes
 Author: Frank B&uuml;ltge
 Author URI: http://bueltge.de/
-Version: 0.5
+Version: 0.6
 License: GPL
-Last Change: 04.05.2009 15:39:51
+Last Change: 19.01.2010 16:39:51
 */
 
 //avoid direct calls to this file, because now WP core and framework has been used
@@ -68,9 +68,9 @@ if ( !class_exists('DebugQueries') ) {
 					$total_query_time += $q[1];
 					$debugQueries .= '<li' . $class . '><strong>' . __('Time:') . '</strong> ' . $q[1];
 					if ( isset($q[1]) )
-						$debugQueries .= '<br /><strong>' . __('Query:') . '</strong> ' . $q[0];
+						$debugQueries .= '<br /><strong>' . __('Query:') . '</strong> ' . htmlentities( $q[0] );
 					if ( isset($q[2]) )
-						$debugQueries .= '<br /><strong>' . __('Call from:') . '</strong> ' . $q[2];
+						$debugQueries .= '<br /><strong>' . __('Call from:') . '</strong> ' . htmlentities( $q[2] );
 					$debugQueries .= '</li>' . "\n";
 					$x++;
 				}
