@@ -16,7 +16,7 @@ The plugin is perfect for WordPress developers, plugin and theme developers and 
 Please visit [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries") for further details and the latest information on this plugin.
 
 = Interested in WordPress tips and tricks =
-You may also be interested in WordPress tips and tricks at [WP Enginner](http://wpengineer.com/) or for german people [bueltge.de](http://bueltge.de/) 
+You may also be interested in WordPress tips and tricks at [WP Engineer](http://wpengineer.com/) or for german people [bueltge.de](http://bueltge.de/) 
 
 == Installation ==
 1. Unpack the download-package
