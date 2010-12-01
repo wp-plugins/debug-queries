@@ -66,9 +66,8 @@ Please visit [the official website](http://bueltge.de/wordpress-performance-anal
 Please visit [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries") and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
 
 == Changelog ==
-=  v1.0.0 (12/01/2010)=
+= v1.0.0 (12/01/2010) =
 * Feature: add constant for disable mySQL Session Cache; The plugin has since version 1.0.0 a constant to disable the mySQL Session cache. On defoult is the value on true and the cache is off for an better analyse! For change this, set the constant `QUERY_CACHE_TYPE_OFF` to `FALSE`.
-
 
 = v0.6 (01/19/2010) =
 * Convert all applicable characters in queries to HTML entities 
