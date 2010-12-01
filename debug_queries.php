@@ -5,9 +5,9 @@ Plugin URI: http://bueltge.de/wordpress-performance-analysieren-plugin/558/
 Description: List query-actions only for admins; for debug purposes
 Author: Frank B&uuml;ltge
 Author URI: http://bueltge.de/
-Version: 0.7
+Version: 1.0.0
 License: GPL
-Last Change: 01.12.2010 13:00:51
+Last Change: 01.12.2010 16:00:51
 */
 
 //avoid direct calls to this file, because now WP core and framework has been used
