@@ -5,9 +5,9 @@ Plugin URI: http://bueltge.de/wordpress-performance-analysieren-plugin/558/
 Description: List query-actions only for admins; for debug purposes
 Author: Frank B&uuml;ltge
 Author URI: http://bueltge.de/
-Version: 0.6
+Version: 0.7
 License: GPL
-Last Change: 19.01.2010 16:39:51
+Last Change: 01.12.2010 13:00:51
 */
 
 //avoid direct calls to this file, because now WP core and framework has been used
@@ -26,6 +26,9 @@ if ( function_exists('add_action') ) {
 	if ( !defined('WP_PLUGIN_URL') )
 		define('WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins');
 }
+
+// disable mySQL Session Cache
+define( 'QUERY_CACHE_TYPE_OFF', true );
 
 if ( !defined('SAVEQUERIES') )
 	define('SAVEQUERIES', true);
@@ -50,6 +53,10 @@ if ( !class_exists('DebugQueries') ) {
 		// core
 		function get_fbDebugQueries() {
 			global $wpdb;
+			
+			// disabled session cache of mySQL
+			if ( QUERY_CACHE_TYPE_OFF )
+				$wpdb->query( 'SET SESSION query_cache_type = 0;' );
 			
 			$debugQueries  = '';
 			if ($wpdb->queries) {
@@ -187,4 +194,5 @@ if ( !class_exists('DebugQueries') ) {
 	
 	$DebugQueries = new DebugQueries();
 }
+
 ?>
