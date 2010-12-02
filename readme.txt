@@ -11,7 +11,7 @@ List query-actions only for admins; for debug purposes
 == Description ==
 List query-actions only for admins; for debug purposes. See all queries on the frontend of the blog and find the slowest part.
 
-The plugin has since version 1.0.0 a constant to disable the mySQL Session cache. On defoult is the value on true and the cache is off for an better analyse! For change this, set the constant `QUERY_CACHE_TYPE_OFF` to `FALSE`.
+Since version 1.0.0 the plugin disable the MySQL query cache for the current connected session. That will show you the real execution time for a query. To disable this behavior set the constant `QUERY_CACHE_TYPE_OFF` to `FALSE`.
 
 
 The plugin is perfect for WordPress developers, plugin and theme developers and site administrators who are trying to find out why the blog is too slow.
