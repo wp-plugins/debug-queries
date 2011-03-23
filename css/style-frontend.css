@@ -26,6 +26,13 @@
 #debugqueries ul {
 	margin-top: 1em;
 }
+#debugqueries ol li ul li, #debugqueries ul li {
+	padding: 0 5px;
+}
+#debugqueries ol li ul li:hover, #debugqueries ul li:hover {
+	color: #000;
+	background-color: #DFDFDF;
+}
 
 #debugqueries li.alt {
 	color: #D98500;

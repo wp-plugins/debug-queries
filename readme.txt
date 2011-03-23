@@ -3,8 +3,8 @@ Contributors: Bueltge
 Donate link: http://bueltge.de/wunschliste/
 Tags: query, queries, database, performance, analyse, sql, debug, tuning
 Requires at least: 1.5
-Tested up to: 3.1-beta
-Stable tag: 1.0.0
+Tested up to: 3.1
+Stable tag: 1.0.1
 
 List query-actions only for admins; for debug purposes
 
@@ -69,6 +69,11 @@ Please visit [the official website](http://bueltge.de/wordpress-performance-anal
 Please visit [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries") and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
 
 == Changelog ==
+= v1.0.01 (03/23/2011) =
+* fixes for changed functions of WP 3.1
+* changes on markup for better use on frontend
+* small changes for WP Codex
+
 = v1.0.0 (12/01/2010) =
 * Feature: add constant for disable mySQL Session Cache; The plugin has since version 1.0.0 a constant to disable the mySQL Session cache. On defoult is the value on true and the cache is off for an better analyse! For change this, set the constant `QUERY_CACHE_TYPE_OFF` to `FALSE`.
 
