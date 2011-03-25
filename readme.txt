@@ -69,7 +69,7 @@ Please visit [the official website](http://bueltge.de/wordpress-performance-anal
 Please visit [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries") and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
 
 == Changelog ==
-= v1.0.01 (03/23/2011) =
+= v1.0.1 (03/23/2011) =
 * fixes for changed functions of WP 3.1
 * changes on markup for better use on frontend
 * small changes for WP Codex
