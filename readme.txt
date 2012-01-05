@@ -3,7 +3,7 @@ Contributors: Bueltge
 Donate link: http://bueltge.de/wunschliste/
 Tags: query, queries, database, performance, analyse, sql, debug, tuning
 Requires at least: 1.5
-Tested up to: 3.3-aortic-dissection
+Tested up to: 3.3.1
 Stable tag: 1.0.1
 
 List query-actions only for admins; for debug purposes
@@ -11,12 +11,12 @@ List query-actions only for admins; for debug purposes
 == Description ==
 List query-actions only for admins; for debug purposes. See all queries on the frontend of the blog and find the slowest part.
 
+*New Release*
+Please use the plugin [Debug Objects](http://wordpress.org/extend/plugins/debug-objects/), provides more information and a cleaner query view as this older plugin.
+
 Since version 1.0.0 the plugin disable the MySQL query cache for the current connected session. That will show you the real execution time for a query. To disable this behavior set the constant `QUERY_CACHE_TYPE_OFF` to `FALSE`.
 
-
 The plugin is perfect for WordPress developers, plugin and theme developers and site administrators who are trying to find out why the blog is too slow.
-
-Please visit [the official website](http://bueltge.de/wordpress-performance-analysieren-plugin/558/ "Debug Queries") for further details and the latest information on this plugin.
 
 = More Plugins = 
 Please see also my [Premium Plugins](http://wpplugins.com/author/malo.conny/). Maybe you find an solution for your requirement.
