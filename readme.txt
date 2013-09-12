@@ -1,9 +1,9 @@
 === Debug Queries ===
-Contributors: Bueltge
+Contributors: Bueltge, inpsyde
 Donate link: http://bueltge.de/wunschliste/
 Tags: query, queries, database, performance, analyse, sql, debug, tuning
 Requires at least: 1.5
-Tested up to: 3.3.1
+Tested up to: 3.7-alpha
 Stable tag: 1.0.1
 
 List query-actions only for admins; for debug purposes
