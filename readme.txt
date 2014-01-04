@@ -3,26 +3,22 @@ Contributors: Bueltge, inpsyde
 Donate link: http://bueltge.de/wunschliste/
 Tags: query, queries, database, performance, analyse, sql, debug, tuning
 Requires at least: 1.5
-Tested up to: 3.7-alpha
-Stable tag: 1.0.1
+Tested up to: 3.9-alpha
+Stable tag: 1.0.2
 
 List query-actions only for admins; for debug purposes
 
 == Description ==
 List query-actions only for admins; for debug purposes. See all queries on the frontend of the blog and find the slowest part.
 
-*New Release*
+= New release, new Plugin =
 Please use the plugin [Debug Objects](http://wordpress.org/extend/plugins/debug-objects/), provides more information and a cleaner query view as this older plugin.
+The new solution list also the plugin and core queries in different views.
 
 Since version 1.0.0 the plugin disable the MySQL query cache for the current connected session. That will show you the real execution time for a query. To disable this behavior set the constant `QUERY_CACHE_TYPE_OFF` to `FALSE`.
 
 The plugin is perfect for WordPress developers, plugin and theme developers and site administrators who are trying to find out why the blog is too slow.
 
-= More Plugins = 
-Please see also my [Premium Plugins](http://wpplugins.com/author/malo.conny/). Maybe you find an solution for your requirement.
-
-= Interested in WordPress tips and tricks =
-You may also be interested in WordPress tips and tricks at [WP Engineer](http://wpengineer.com/) or for german people [bueltge.de](http://bueltge.de/) 
 
 == Installation ==
 1. Unpack the download-package
@@ -61,6 +57,10 @@ Thanks to Joost de Valk on [yoast.com](http://yoast.com/ "yoast.com") for small 
 Good news, this plugin is free for everyone! Since it's released under the GPL, you can use it free of charge on your personal or commercial blog. But if you enjoy this plugin, you can thank me and leave a [small donation](http://bueltge.de/wunschliste/ "Wishliste and Donate") for the time I've spent writing and supporting this plugin. And I really don't want to know how many hours of my life this plugin has already eaten ;)
 
 == Changelog ==
+= v1.0.2 (01/04/2014) =
+* Fix for php function `ereg_replace`. there is deprecated
+* Distinctive note to the new plugin Debug Objects, there have much more possibilities and more maintenance
+
 = v1.0.1 (03/23/2011) =
 * fixes for changed functions of WP 3.1
 * changes on markup for better use on frontend

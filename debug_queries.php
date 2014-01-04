@@ -4,41 +4,36 @@
  * @author Frank B&uuml;ltge
  */
  
-/*
-Plugin Name: Debug Queries
-Plugin URI: http://bueltge.de/wordpress-performance-analysieren-plugin/558/
-Description: List query-actions only for admins; for debug purposes
-Author: Frank B&uuml;ltge
-Author URI: http://bueltge.de/
-Version: 1.0.1
-License: GPLv2
-Last Change: 23.03.2011 21:00
-*/
+/**
+ * Plugin Name: Debug Queries
+ * Plugin URI:  http://bueltge.de/wordpress-performance-analysieren-plugin/558/
+ * Description: List query-actions only for admins; for debug purposes
+ * Author:      Frank Bültge
+ * Author URI:  http://bueltge.de/
+ * Version:     1.0.2
+ * License:     GPLv2
+ * Last Change: 04/01/2014
+ */
 
 //avoid direct calls to this file, because now WP core and framework has been used
-if ( !function_exists( 'add_action' ) ) {
+if ( ! function_exists( 'add_action' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit();
 }
 
-if ( function_exists( 'add_action' ) ) {
-	//WordPress definitions
-	if ( !defined( 'WP_CONTENT_URL' ) )
-		define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/wp-content' );
-	if ( !defined( 'WP_CONTENT_DIR' ) )
-		define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
-	if ( !defined( 'WP_PLUGIN_URL' ) )
-		define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins' );
-}
 
+
+if ( ! class_exists( 'Debug_Queries' ) ) {
+	
+	
 // disable mySQL Session Cache
-define( 'QUERY_CACHE_TYPE_OFF', TRUE );
+if ( ! defined( 'QUERY_CACHE_TYPE_OFF' ) )
+	define( 'QUERY_CACHE_TYPE_OFF', TRUE );
 
-if ( !defined( 'SAVEQUERIES' ) )
+if ( ! defined( 'SAVEQUERIES' ) )
 	define( 'SAVEQUERIES', TRUE );
-
-if ( !class_exists( 'Debug_Queries' ) ) {
+	
 	class Debug_Queries {
 		
 		// constructor
@@ -77,7 +72,7 @@ if ( !class_exists( 'Debug_Queries' ) ) {
 					else
 						$class = ' class="alt"';
 					
-					$q[0] = trim( ereg_replace( '[[:space:]]+', ' ', $q[0]) );
+					$q[0] = trim( preg_replace( '/[[:space:]]+/', ' ', $q[0]) );
 					$total_query_time += $q[1];
 					$debug_queries .= '<li' . $class . '><ul>';
 					$debug_queries .= '<li><strong>' . __( 'Time:' ) . '</strong> ' . $q[1] . '</li>';
@@ -184,11 +179,12 @@ if ( !class_exists( 'Debug_Queries' ) ) {
 		
 		// infos in frontend, add css to head
 		function wp_head() {
-			global $wp_version;
 			
 			if ( ! current_user_can( 'DebugQueries' ) )
 				return NULL;
-				
+			
+			global $wp_version;
+			
 			if ( version_compare( $wp_version, '2.8dev', '>' ) )
 				$style = plugins_url( 'css/style-frontend.css', __FILE__ );
 			else
@@ -203,5 +199,3 @@ if ( !class_exists( 'Debug_Queries' ) ) {
 	
 	$debug_queries = new Debug_Queries();
 }
-
-?>
