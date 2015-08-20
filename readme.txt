@@ -3,7 +3,7 @@ Contributors: Bueltge, inpsyde
 Donate link: http://bueltge.de/wunschliste/
 Tags: query, queries, database, performance, analyse, sql, debug, tuning
 Requires at least: 1.5
-Tested up to: 4.1
+Tested up to: 4.3
 Stable tag: 1.0.2
 
 List query-actions only for admins; for debug purposes
